@@ -1,11 +1,11 @@
 #include "main.h"
 
 /**
- * printf_char - prints a char.
+ * printf_ch - prints a char.
  * @val: arguments.
  * Return: 1.
  */
-int printf_char(va_list val)
+int printf_ch(va_list val)
 {
 	char s;
 
