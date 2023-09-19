@@ -12,36 +12,30 @@ int _printf(const char * const format, ...)
 	};
 
 	va_list args;
-	int i = 0, len = 0;
-	unsigned int j;
+	int i = 0, j, len = 0;
 
 	va_start(args, format);
 	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
 		return (-1);
 
-	while (format[i] != '\0')
-	{
-		if (format[i] == '%')
-		{
-			i++;
-			while (j < sizeof(m) / sizeof(m[0]))
-			{
-				if (m[j].id[0] == format[i] && m[j].id[1] == format[i + 1])
-				{
-					len += m[j].f(args);
-					i = i + 2;
-					break;  /*Exit the inner loop when a match is found*/
-				}
-				j++;
-			}
-		}
-		else
-		{
-			_putchar(format[i]);
-			len++;
-			i++;
-		}
-	}
-	va_end(args);
-	return (len);
+Here:
+while (format[i] != '\0')
+{
+j = 13;
+while (j >= 0)
+{
+if (m[j].id[0] == format[i] && m[j].id[1] == format[i + 1])
+{
+len += m[j].f(args);
+i = i + 2;
+goto Here;
+}
+J--;
+}
+_putchar(format[i]);
+Len++;
+I++;
+}
+va_end(args);
+return (len);
 }
