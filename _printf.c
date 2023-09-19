@@ -19,11 +19,15 @@ int _printf(const char * const format, ...)
 	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
 		return (-1);
 
-while (format[i] != '\0') {
-        if (format[i] == '%') {
+	while (format[i] != '\0')
+       	{
+        if (format[i] == '%') 
+	{
             i++;
-            while (j < sizeof(m) / sizeof(m[0])) {
-                if (m[j].id[0] == format[i] && m[j].id[1] == format[i + 1]) {
+            while (j < sizeof(m) / sizeof(m[0])) 
+	    {
+                if (m[j].id[0] == format[i] && m[j].id[1] == format[i + 1]) 
+		{
                     len += m[j].f(args);
                     i = i + 2;
                     break;  /*Exit the inner loop when a match is found*/
